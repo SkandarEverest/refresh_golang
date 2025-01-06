@@ -1,0 +1,51 @@
+# Binaries for programs and plugins
+*.exe
+*.dll
+*.so
+*.dylib
+*.test
+
+# Output of the `go build` command
+/build/
+*.out
+
+# Go vendor directory (if not using Go modules)
+vendor/
+
+# Dependency management
+Gopkg.lock
+Gopkg.toml
+go.sum
+
+# IDE and editor settings
+.idea/
+*.swp
+*.swo
+*.swn
+.vscode/
+*.code-workspace
+
+# Logs and temporary files
+*.log
+*.tmp
+
+# Echo-generated files (if applicable)
+echo-generated/
+templates_c/
+
+# Environment files
+.env
+.env.*
+
+# Coverage and test artifacts
+*.cover
+*.cov
+coverage.out
+
+# Cache files
+**/.cache/
+*.cache
+
+# Miscellaneous
+.DS_Store
+Thumbs.db
