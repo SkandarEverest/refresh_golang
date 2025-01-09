@@ -29,6 +29,6 @@ sqlc:
 	sqlc generate
 
 server:
-	go run cmd/api/main.go
+	npx nodemon --exec go run cmd/api/main.go --signal SIGTERM
 
 .PHONY: postgres createdb dropdb migrateup migratedown migrateup1 migratedown1 new_migration sqlc server
