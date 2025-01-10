@@ -21,11 +21,11 @@ type UserUseCase struct {
 	Config *viper.Viper
 }
 
-func NewUserUseCase(db *db.SQLStore, logger *logrus.Logger, config *viper.Viper) *UserUseCase {
+func NewUserUseCase(db *db.SQLStore, logger *logrus.Logger, cfg *viper.Viper) *UserUseCase {
 	return &UserUseCase{
 		DB:     db,
 		Log:    logger,
-		Config: config,
+		Config: cfg,
 	}
 }
 

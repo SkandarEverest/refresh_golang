@@ -28,7 +28,7 @@ func NewUserHandler(useCase *usecase.UserUseCase, logger *logrus.Logger, validat
 	}
 }
 
-func (c *UserHandler) CreateUser(ctx echo.Context) error {
+func (c *UserHandler) AuthenticateUser(ctx echo.Context) error {
 	var request = new(dto.AuthRequest)
 
 	if err := ctx.Bind(request); err != nil {

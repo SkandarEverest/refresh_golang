@@ -24,21 +24,24 @@ type BootstrapConfig struct {
 
 func Bootstrap(config *BootstrapConfig) {
 
-	// setup use cases
+	// user
 	userUseCase := usecase.NewUserUseCase(config.DB, config.Log, config.Config)
-
-	// setup controller
 	userHandler := handler.NewUserHandler(userUseCase, config.Log, config.Validate)
+
+	// file
+	fileUseCase := usecase.NewFileUseCase(config.Log, config.Config)
+	fileHandler := handler.NewFileHandler(fileUseCase, config.Log)
 
 	// setup middleware
 	authMiddleware := middleware.Auth(config.Config)
+
+	// setup route
 	routeConfig := routes.RouteConfig{
 		App:            config.App,
 		UserController: userHandler,
+		FileController: fileHandler,
 		AuthMiddleware: authMiddleware,
 	}
 	routeConfig.Setup()
-	// user := config.App.Group("/users")
-	// user.POST("/create", UserHandler.CreateUser)
 
 }
