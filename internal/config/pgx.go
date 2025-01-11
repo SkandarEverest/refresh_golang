@@ -26,8 +26,9 @@ func NewDatabase(viper *viper.Viper, log *logrus.Logger) *db.SQLStore {
 	password := viper.GetString("DB_PASSWORD")
 	host := viper.GetString("DB_HOST")
 	port := viper.GetInt("DB_PORT")
+	ssl := viper.GetString("DB_SSL_MODE")
 
-	dsn := fmt.Sprintf("postgresql://%s:%s@%s:%d/%s?sslmode=disable", username, password, host, port, database)
+	dsn := fmt.Sprintf("postgresql://%s:%s@%s:%d/%s?sslmode=%s", username, password, host, port, database, ssl)
 
 	ctx, stop := signal.NotifyContext(context.Background(), interruptSignals...)
 	defer stop()
